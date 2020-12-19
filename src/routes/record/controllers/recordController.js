@@ -1,9 +1,9 @@
 import Record from '../../../models/Record'
 
+// Queries the Record for data matching search criteria
 export default async ({ bodymen: { body } }, res, next) => {
   try {
     const { startDate, endDate, minCount, maxCount } = body
-    console.log(startDate, endDate, minCount, maxCount)
 
     Record.aggregate([
       {

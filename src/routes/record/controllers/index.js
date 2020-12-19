@@ -1,4 +1,5 @@
-import record from './record'
+import recordController from './recordController'
+// Controllers
 export {
-  record
+  recordController
 }

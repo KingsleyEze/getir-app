@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-
 const recordSchema = mongoose.Schema({
   managerName: {
     key: String

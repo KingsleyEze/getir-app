@@ -25,18 +25,18 @@ const config = {
     root: path.join(__dirname, '..'),
     port: process.env.PORT || 9000,
     ip: process.env.IP || '0.0.0.0',
-    apiRoot: process.env.API_ROOT || '',
+    apiRoot: process.env.API_ROOT || '/api',
     mongo: {
       options: {
-        db: {
-          safe: true
-        }
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+        useCreateIndex: true
       }
     }
   },
   test: {
     mongo: {
-      uri: 'mongodb://localhost:9000/getir-app'
+      uri: requireProcessEnv('MONGODB_URI')
     }
   },
   development: {
