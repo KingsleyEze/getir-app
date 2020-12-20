@@ -54,4 +54,22 @@ describe('Valid record controller requests', () => {
         done()
       })
   })
+
+  test('Zero match for record not in range it should return 200 with empty records', done => {
+    request(app)
+      .post('/api/records/search')
+      .send({
+        startDate: '2000-01-26',
+        endDate: '2002-02-02',
+        minCount: 2700,
+        maxCount: 3000
+      })
+      .then(response => {
+        expect(response.statusCode).toBe(200)
+        expect(response.body.code).toBe(0)
+        expect(response.body.msg).toBe('Success')
+        expect(response.body.records).toHaveLength(0)
+        done()
+      })
+  })
 })
